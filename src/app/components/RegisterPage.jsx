@@ -40,7 +40,7 @@ export function RegisterPage() {
 
       setTimeout(() => {
         toast.success("You'll be redirected to login page soon.");
-        window.location.href = "/login";
+        navigate("/login");
       }, 1000);
 
       // window.location.href = "/dashboard";
