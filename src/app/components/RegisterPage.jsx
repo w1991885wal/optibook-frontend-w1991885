@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { registerUser } from "../../lib/auth";
+import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
 export function RegisterPage() {
@@ -35,7 +36,14 @@ export function RegisterPage() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      window.location.href = "/dashboard";
+      toast.success("Your account is created.");
+
+      setTimeout(() => {
+        toast.success("You'll be redirected to login page soon.");
+        window.location.href = "/login";
+      }, 1000);
+
+      // window.location.href = "/dashboard";
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
     } finally {
