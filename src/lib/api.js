@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const url = "https://optibook-backend-w1991885-production.up.railway.app/api";
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // change if needed
+  baseURL: url, // change if needed
 });
 
 // attach token automatically
